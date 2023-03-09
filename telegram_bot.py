@@ -8,12 +8,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
+'''
 VK_TOKEN = os.getenv("VK_TOKEN")
 USER1_ID = os.getenv("VK_USER1_ID")
 USER2_ID = os.getenv("VK_USER2_ID")
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+'''
 
 VK_TOKEN = 0
 USER1_ID = 0
@@ -55,7 +56,6 @@ def main():
                     if user['previous_status'] == 0:
                         timer = dt.datetime.now().strftime('%H:%M %d.%m.%Y')
                         msg = f'{status["first_name"]} {status["last_name"]} сейчас онлайн! {timer}. back4app'
-                        print(msg)
                         asyncio.run(send_message(msg))
                 user['previous_status'] = status['online']
             time.sleep(60)
