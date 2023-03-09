@@ -55,8 +55,8 @@ def main():
                 status = get_vk_status(user['id'])
                 if status['online'] == 1:
                     if user['previous_status'] == 0:
-                        timer = (dt.datetime.now() + dt.timedelta(hours=3)).strftime('%H:%M %d.%m.%Y')
-                        msg = f'{status["first_name"]} {status["last_name"]} сейчас онлайн! {timer}'
+                        timer = dt.datetime.now().strftime('%H:%M %d.%m.%Y')
+                        msg = f'{status["first_name"]} {status["last_name"]} сейчас онлайн! {timer}. back4app'
                         print(msg)
                         asyncio.run(send_message(msg))
                 user['previous_status'] = status['online']
