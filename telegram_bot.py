@@ -1,12 +1,11 @@
+import os
 import requests
 import telegram
 import asyncio
 import time
 import datetime as dt
-
-'''
-import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 
@@ -15,7 +14,6 @@ USER1_ID = os.getenv("VK_USER1_ID")
 USER2_ID = os.getenv("VK_USER2_ID")
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
-'''
 
 VK_TOKEN = 0
 USER1_ID = 0
