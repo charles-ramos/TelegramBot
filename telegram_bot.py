@@ -1,11 +1,12 @@
-import os
 import requests
 import telegram
 import asyncio
 import time
 import datetime as dt
-from dotenv import load_dotenv
 
+'''
+import os
+from dotenv import load_dotenv
 load_dotenv()
 
 
@@ -14,6 +15,13 @@ USER1_ID = os.getenv("VK_USER1_ID")
 USER2_ID = os.getenv("VK_USER2_ID")
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+'''
+
+VK_TOKEN = 0
+USER1_ID = 0
+USER2_ID = 0
+TELEGRAM_TOKEN = 0
+CHAT_ID = 0
 
 
 def get_vk_status(user_id):
@@ -47,8 +55,9 @@ def main():
                 status = get_vk_status(user['id'])
                 if status['online'] == 1:
                     if user['previous_status'] == 0:
-                        timer = dt.datetime.now().strftime('%H:%M %d.%m.%Y')
+                        timer = (dt.datetime.now() + dt.timedelta(hours=3)).strftime('%H:%M %d.%m.%Y')
                         msg = f'{status["first_name"]} {status["last_name"]} сейчас онлайн! {timer}'
+                        print(msg)
                         asyncio.run(send_message(msg))
                 user['previous_status'] = status['online']
             time.sleep(60)
